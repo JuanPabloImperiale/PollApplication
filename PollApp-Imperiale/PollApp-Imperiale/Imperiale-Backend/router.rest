@@ -1,0 +1,40 @@
+# Get all
+GET http://localhost:3000/polls
+
+###
+# Get ID
+GET http://localhost:3000/polls/62fdcb322e6695746488af50
+
+###
+# Delete
+DELETE http://localhost:3000/polls/6302b3ab0986d91780ac12d5
+
+###
+# Create
+POST http://localhost:3000/polls
+Content-Type: application/json
+
+{
+    "title": "Cual es tu pais Favorito?",
+    "answers": [{"text":"Argentina"}, {"text":"Mexico"}, {"text":"Colombia"}],
+    "startDate": "2022-08-15",
+    "endDate":"2022-08-19"
+}
+
+
+###
+# Edit
+PATCH  http://localhost:3000/polls/63043aea6b87660c1575e280
+Content-Type: application/json
+
+{
+    "title": "What is your favorite Animal ?",
+    "answers": [{"text":"Dog","vote":2}, {"text":"Cat","vote":3}, {"text":"Hourse","vote":1}],
+    "startDate": "2022-08-15",
+    "endDate":"2022-08-23"
+}
+
+
+###
+# Vote
+PATCH  http://localhost:3000/polls/6302b4140986d91780ac12e4/vote/6302b4140986d91780ac12e6
