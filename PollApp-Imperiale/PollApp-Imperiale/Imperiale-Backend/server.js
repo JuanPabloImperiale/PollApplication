@@ -1,3 +1,4 @@
+
 require('dotenv').config()
 
 const express = require('express')
@@ -6,7 +7,10 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const url = "mongodb://root:123456789@localhost:27017/DecryptDigitalHype?authSource=admin"
+
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
