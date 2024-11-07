@@ -14,8 +14,11 @@ wss.on("connection", function connection(ws) {
 // Getting all
 router.get("/", async (req, res) => {
   try {
+    console.log("entra")
     const poll = await Poll.find();
+    console.log("respuesta1", poll)
     res.json(poll);
+    console.log("respuesta",poll)
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -28,6 +31,7 @@ router.get("/:id", getpoll, (req, res) => {
 
 // Creating one
 router.post("/", async (req, res) => {
+  console.log("request test", req, res )
   const poll = new Poll({
     title: req.body.title,
     answers: req.body.answers,
